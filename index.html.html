@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Día de las Flores Amarillas - 21 de Septiembre">
+    <title>Día de las Flores Amarillas</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Conexión con el archivo CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Música de fondo -->
+    <audio id="background-music" loop>
+        <source src="musica_romantica.mp3" type="audio/mpeg"> <!-- Reemplaza con tu archivo de música -->
+        Tu navegador no soporta el reproductor de audio.
+    </audio>
+
+    <!-- Encabezado -->
+    <header>
+        <h1 class="title">Feliz Día de las Flores Amarillas</h1>
+        <h2>21 de septiembre, un día para celebrar nuestro amor </h2>
+    </header>
+
+    <!-- Galería de imágenes con texto -->
+    <section id="gallery">
+        <div class="flower-card">
+            <img src="flor1.jpg" alt="Flor Amarilla 1">
+            <p>Tu amor ilumina mi vida como estas flores iluminan el campo.</p>
+        </div>
+        <div class="flower-card">
+            <img src="flor2.jpg" alt="Flor Amarilla 2">
+            <p>Eres mi flor más preciosa, y te elijo cada día.</p>
+        </div>
+        <div class="flower-card">
+            <img src="flor3.jpg" alt="Flor Amarilla 3">
+            <p>Gracias por hacer de cada día una primavera eterna.</p>
+        </div>
+    </section>
+
+    <!-- Botón de música debajo de las imágenes -->
+    <div class="music-container">
+        <button id="music-btn" onclick="toggleMusic()">❤️</button>
+    </div>
+
+    <!-- Mensaje especial con animación -->
+    <section id="message">
+        <p class="animated-text">En este día tan especial, quiero que sepas que mi amor por ti florece más con cada amanecer. Te amo.</p>
+    </section>
+
+    <!-- Sección de cita romántica -->
+    <section id="quote">
+        <blockquote>
+            "El amor es esa flor que crece incluso en los terrenos más difíciles."
+        </blockquote>
+    </section>
+
+    <!-- Formulario interactivo para dejar un mensaje -->
+    <section id="love-message">
+        <h3>Déjame un mensaje de amor 💌</h3>
+        <form id="message-form">
+            <textarea id="message-text" placeholder="Escribe aquí tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="thank-you" style="display:none;">¡Gracias por tu hermoso mensaje cari !</div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>Con todo meu amor, hasta el infinito y mas allaaaaa.</p>
+    </footer>
+
+    <!-- Script para interactividad -->
+    <script>
+        // Función para controlar la música
+        function toggleMusic() {
+            const music = document.getElementById('background-music');
+            const musicBtn = document.getElementById('music-btn');
+            if (music.paused) {
+                music.play();
+                musicBtn.textContent = "⏸️"; // Cuando la música está reproduciendo, muestra el símbolo de pausa
+            } else {
+                music.pause();
+                musicBtn.textContent = "❤️"; // Muestra el emoji de corazón cuando la música está pausada
+            }
+        }
+
+        // Animación del mensaje de amor
+        document.addEventListener("DOMContentLoaded", function () {
+            const message = document.querySelector('.animated-text');
+            message.style.opacity = 0;
+            message.style.transition = "opacity 3s ease-in-out";
+            setTimeout(() => {
+                message.style.opacity = 1;
+            }, 1000);
+        });
+
+        // Manejo del formulario de mensajes de amor
+        document.getElementById('message-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que la página se recargue
+            document.getElementById('thank-you').style.display = "block";
+            document.getElementById('message-text').value = ''; // Limpia el texto del área de mensaje
+        });
+    </script>
+</body>
+</html>
